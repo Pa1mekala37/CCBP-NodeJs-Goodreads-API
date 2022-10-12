@@ -1,0 +1,16 @@
+### Get Books API With Query Parameters
+
+const { offset, limit, search_q, order, order_by } = request.query;
+
+const getBooksQuery = `
+    SELECT
+      *
+    FROM
+     book
+    WHERE
+     title LIKE '%${search_q}%'
+    ORDER BY ${order_by} ${order}
+    LIMIT ${limit} OFFSET ${offset};`;
+
+    
+---------------------------------
